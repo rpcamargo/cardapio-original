@@ -8,7 +8,7 @@ const lanches = {
     {
         "id": 2,
         "nome": 'Original Salada',
-        "descricao": 'Pão de hambúrguer, hambúrguer fraldinha 100g, mussarela, alface, tomate;',
+        "descricao": 'Pão de hambúrguer, hambúrguer fraldinha 100g, mussarela, alface, tomate',
         "preco": 21.00
     },
     ,
@@ -59,7 +59,23 @@ const bebidas = {
 }
 
 lanches.lanche.forEach( item => {
-    const li = document.createElement('li')
+    window.onload = function (){
+        let caixa = document.getElementById('caixa') // seleciona o html
+        let h2 = document.createElement('h2') // cria o h2
+        h2[item].setAttribute('class', 'titulo_lanche') // seta a classe titulo_lanche
+        caixa.appendChild(h2[item]) // seta onde
+    }
+})
+
+/*lanches.lanche.forEach( item => { // esta mandando para o lugar certo, mas não da maneira certa
+    const h2 = document.getElementById('nome_lanche')
+    const p = document.getElementById('descricao_lanche')
+    h2.innerHTML = `${item.nome}`
+    p.innerHTML = `${item.descricao}`
+})*/
+
+lanches.lanche.forEach( item => {
+    const li = document.createElement('p')
     const texto = document.createTextNode(`${item.nome}: ${item.descricao}  R$ ${item.preco}`)
     li.append(texto);
     document.getElementById("exibirLanches").append(li)
